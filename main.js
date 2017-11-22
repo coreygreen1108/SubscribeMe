@@ -1,7 +1,7 @@
 const app = require('./server');
-const db = require('./db/model').db;
+const {connection} = require('./db');
 
-db.sync()
+connection.sync()
 .then(() => {
     app.listen(3000, () => {
         console.log('server running on port 3000'); 

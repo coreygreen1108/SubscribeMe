@@ -3,9 +3,34 @@ const app = express();
 const path = require('path');
 const volleyball = require('volleyball');
 const bodyParser = require('body-parser');
+const session = require('express-session')
+const passport = require('passport');
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const db = require('../db').connection;
+const sessionStore = new SequelizeStore({db})
+
+//move these methods. temporary spot.
+passport.serializeUser((user, done) => done(null, user.id))
+passport.deserializeUser((id, done) =>
+  db.models.user.findById(id)
+    .then(user => done(null, user))
+    .catch(done))
 
 //logging middleware
 app.use(volleyball);
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'this is a default secret',
+  store: sessionStore,
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+// auth and api routes
+app.use('/auth', require('./auth'))
 
 //body parsing middleware
 app.use(bodyParser.json());

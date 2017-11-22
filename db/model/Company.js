@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize'); 
-const db = require('../_db').sequelize;
+const db = require('../_db').connection;
 const request = require('request-promise');
 const keysConfig = require('../../config/keys.json')[process.env.NODE_ENV || 'development'];
 const crypto = require('crypto');

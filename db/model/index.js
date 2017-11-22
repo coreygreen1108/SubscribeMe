@@ -1,10 +1,5 @@
-const db = require('../_db').sequelize;
-
-const User = require('./User');
-const Company = require('./Company');
+const User = require('./user');
 
 module.exports = {
-    db,
-    User,
-    Company
+    User
 }
