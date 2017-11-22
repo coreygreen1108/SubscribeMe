@@ -29,18 +29,21 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-// auth and api routes
-app.use('/auth', require('./auth'))
-
 //body parsing middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// auth and api routes
+const apiRoutes = require('./api');
+
+app.use('/api', apiRoutes);
+app.use('/auth', require('./auth'))
+
+
+
 //static middleware
 app.use(express.static(path.join(__dirname, '../public')));
 
-const apiRoutes = require('./api');
-app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
