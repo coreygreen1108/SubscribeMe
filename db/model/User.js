@@ -29,7 +29,12 @@ const User = db.define('user', {
    * instanceMethods
    */
   User.prototype.validatePassword = function (candidatePwd) {
+    // console.log('this is the password in plain text', candidatePwd);
+    // console.log('this is the sale', this.salt)
+    let encryptedPassword = User.encryptPassword(candidatePwd, this.salt);
+    // console.log('this is after encryption', encryptedPassword);
     return User.encryptPassword(candidatePwd, this.salt) === this.password
+   
   }
   
   /**
