@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import history from './history'
 // import {Main, Login, Signup, UserHome} from './components'
 import {me} from './store'
-
+import {LandingPage} from './components';
 /**
  * COMPONENT
  */
@@ -20,6 +20,9 @@ class Routes extends Component {
 
     return (
       <Router history={history}>
+        <Switch>
+            <Route path="/" component={LandingPage} />
+        </Switch>
       </Router>
     )
   }

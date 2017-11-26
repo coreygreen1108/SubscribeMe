@@ -1,0 +1,53 @@
+@mixin flex(){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: "Marlboro";
+    src: url("Marlboro.ttf");
+}
+
+.landing {
+    &-container {
+        @include flex();
+        font-family: "Marlboro";
+        margin: 2em 1em;
+        &-top {
+            @include flex();
+            &-title {
+
+            }
+
+            &-slogan {
+
+            }
+
+        }
+
+        &-mission {
+            &-title {
+
+            }
+            &-main {
+
+            }
+        }
+
+        &-benefits {
+            &-indviduals {
+
+            }
+            &-companies {
+
+            }
+        }
+
+        &-bottom {
+
+        }
+
+    }
+}
