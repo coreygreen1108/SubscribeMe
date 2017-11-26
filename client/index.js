@@ -6,9 +6,8 @@ import store from './store'
 import Routes from './routes'
 
 ReactDOM.render(
-  // <Provider store={store}>
-  //   <Routes />
-  // </Provider>,
-  <h1> TESTING </h1>,
+  <Provider store={store}>
+    <Routes />
+  </Provider>,
   document.getElementById('app')
 )
