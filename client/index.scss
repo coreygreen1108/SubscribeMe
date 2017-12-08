@@ -1,23 +1,5 @@
-// body {
-//   font-family: sans-serif;
+@import './scss/landingPage.scss';
 
-//   a {
-//     text-decoration: none;
-//   }
-
-//   label {
-//     display: block;
-//   }
-
-//   nav a {
-//     display: inline-block;
-//     margin: 1em;
-//   }
-
-//   form div {
-//     margin: 1em;
-//     display: inline-block;
-//   }
-// }
-
-@import './scss/landingPage.scss'
+* {
+    margin: 0;
+} 
